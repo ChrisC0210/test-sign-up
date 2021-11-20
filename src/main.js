@@ -18,17 +18,8 @@ configure({
 })
 setLocale('en')
 
-configure({
-  generateMessage: localize({
-    en,
-    zhTW
-  })
-})
-
 const app = createApp(App).use(router)
-
 app.component('Form', Form)
-app._component('Field', Field)
+app.component('Field', Field)
 app.component('ErrorMessage', ErrorMessage)
-
 app.mount('#app')
