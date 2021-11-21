@@ -26,7 +26,25 @@
           <input class="input-style input-between" type="text" placeholder=" First Name"/>
           <input class="input-style input-between" type="text" placeholder=" Last Name"/>
           </div>
+
           <div><input class="input-style" type="email" placeholder=" E-mail"/></div>
+      <div class="mt-20">
+          <!-- 0 -->
+          <span class="field-icon">
+            <button class="btn-remove-style" @click="toggleShow"><span class="icon">
+            <i class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
+            <!-- test -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" :class="{ 'bi bi-eye priamry-blue': showPassword, 'bi bi-eye': !showPassword }" viewBox="0 0 16 16">
+  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+</svg>
+          </span>
+          </button>
+          </span>
+          <!-- 0 -->
+          <input v-if="showPassword" type="text" class="input-style" v-model="password"/>
+          <input v-else type="password" class="input-style" v-model="password" placeholder=" Password">
+          </div>
             <!-- <div class="d-flex flex-between mb-12">
               <input type="checkbox" class="input-checkbox" id="privacyCheck">
               <span class="checkmark"></span>
@@ -39,7 +57,6 @@
           <button class="btn-2 text-center">Create an Free Account!</button>
           <p class="text-center">Already have an account? <a href="#" class="priamry-blue">Log in</a></p>
         <!-- i -->
-
         </form>
         </div>
 
@@ -81,6 +98,9 @@ $blue-200: #F1F5FF;
 $white: #ffffff;
 $black :#000000;
 $gray-200: #ABABAB;
+.priamry-blue{
+  color: $priamry-blue;
+}
 body {
   background: #F1F5FF;
 }
@@ -142,6 +162,9 @@ body {
 }
 .mb-16{
   margin-bottom: 16px;
+}
+.mt-20{
+  margin-top: -20px;
 }
 .text-center{
   text-align: center;
@@ -306,22 +329,54 @@ padding: 32px;
         border-top: none;
     transform: rotate(-45deg);}
 }
+//pw
+.field-icon {
+  float: right;
+  left: -20px;
+  top: 34px;
+  position: relative;
+  z-index: 2;
+}
+.btn-remove-style{
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
 </style>
 <script>
+// export default {
+//   name: 'Home',
+//   data () {
+//     return {
+//       user: {}
+//     }
+//   },
+//   methods: {
+//     onSubmit () {
+//       console.log(this.user)
+//     }
+//   },
+//   created () {
+//     console.log(this)
+//   }
+// }
 export default {
-  name: 'Home',
   data () {
     return {
-      user: {}
+      showPassword: false,
+      password: null
+    }
+  },
+  computed: {
+    buttonLabel () {
+      return (this.showPassword) ? 'Hide' : 'Show'
     }
   },
   methods: {
-    onSubmit () {
-      console.log(this.user)
+    toggleShow () {
+      this.showPassword = !this.showPassword
     }
-  },
-  created () {
-    console.log(this)
   }
 }
 </script>
