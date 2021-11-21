@@ -1,4 +1,5 @@
 # test-sign-up
+See [demo](https://chrisc0210.github.io/test-sign-up/dist).
 
 ## Project setup
 ```
