@@ -5,7 +5,7 @@
     <section>
       <div class="card text-left">
         <div class="card-content">
-        <a href="/" class="f-14 text-back">← Back </a>
+        <a href="#" class="f-14 text-back">← Back </a>
         <form class="card-form f-14">
           <div class="f-18">Start from free</div>
           <h1 class="f-30 mb-16">Create an account</h1>
@@ -77,6 +77,10 @@
 
 <style lang="scss">
 $priamry-blue: #3C71FF;
+$blue-200: #F1F5FF;
+$white: #ffffff;
+$black :#000000;
+$gray-200: #ABABAB;
 body {
   background: #F1F5FF;
 }
@@ -85,7 +89,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  //color: #2c3e50;
 }
 
 #nav {
@@ -151,15 +155,12 @@ body {
     }
   }
 }
-.col-md {
-  flex: 1 0 0%;
-}
 .card {
 position: ralative;
 margin: auto;
 width: 610px;
 height: 680px;
-background: #FFFFFF;
+background: $white;
 box-shadow: 0px 5px 10px 5px rgba(222, 231, 255, 0.25);
 border-radius: 20px;
 padding: 32px;
@@ -181,7 +182,7 @@ padding: 32px;
   .input-style{
     width: 99%;
     height: 45px;
-    background: #F1F5FF;
+    background: $blue-200;
     border-radius: 5px;
     border: solid 0px;
   }
@@ -193,7 +194,7 @@ padding: 32px;
     //background-color: red;
     display: flex;
     align-self: center;
-    background: #ABABAB;
+    background: gray-200;
     padding-right: 16px;
   }
 }
@@ -202,7 +203,7 @@ padding: 32px;
 }
 .text-back{
   text-decoration: none;
-  color: #000;
+  color: $black;
     &:hover, &:focus, &:active{
       text-decoration-line: underline;
       text-decoration-thickness: 0.2em;
@@ -212,16 +213,16 @@ padding: 32px;
 .line-text{
   width: 100%;
   text-align: left;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid $black;
   line-height: 0.1em;
   margin: 20px 0 20px 0px;
   span{
-  background: #fff;
+  background: $white;
   padding: 0;
   }
 }
 .btn{
-  background: #FFFFFF;
+  background: $white;
   border: 1px solid hsla(224, 100%, 62%, 0.5);
   box-sizing: border-box;
   border-radius: 5px;
@@ -240,15 +241,15 @@ padding: 32px;
     mix-blend-mode: normal;
     box-shadow: 0px 6px 15px rgba(60, 113, 255, 0.4);
     border-radius: 5px;
-    color: #fff;
+    color: $white;
     svg{
-    fill: #fff;
+    fill: $white;
     }
   }
 }
 .btn-2{
   background: $priamry-blue;
-  color: #fff;
+  color: $white;
   border: 1px solid hsla(224, 100%, 62%, 0.5);
   box-sizing: border-box;
   border-radius: 5px;
@@ -263,26 +264,26 @@ padding: 32px;
     mix-blend-mode: normal;
     box-shadow: 0px 6px 15px rgba(60, 113, 255, 0.4);
     border-radius: 5px;
-    color: #fff;
+    color: $white;
   }
 }
 @supports(-webkit-appearance: none) {
   input[type="checkbox"] {
-  background-color: #ABABAB;
+  background-color: gray-200;
   border-radius: 5px;
   -webkit-appearance: none;
   width: 18px;
   height: 18px;
-  border: 1px solid #ffffff;
+  border: 1px solid $white;
     margin-right: 12px;
   }
   input[type="checkbox"]:focus {
-    border: 1px solid #000;
+    border: 1px solid $black;
     }
     input[type="checkbox"]:checked {
       position: relative;
       background: none;
-    border: 1px solid #000;
+    border: 1px solid $black;
       }
       input[id="checkbox"]:checked::after {
         position: absolute;
