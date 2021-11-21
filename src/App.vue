@@ -27,8 +27,6 @@
           <input class="input-style input-between" type="text" placeholder=" Last Name"/>
           </div>
           <div><input class="input-style" type="email" placeholder=" E-mail"/></div>
-          <div><input class="input-style" type="password" placeholder=" Password"/></div>
-
             <!-- <div class="d-flex flex-between mb-12">
               <input type="checkbox" class="input-checkbox" id="privacyCheck">
               <span class="checkmark"></span>
@@ -40,6 +38,8 @@
                 </div>
           <button class="btn-2 text-center">Create an Free Account!</button>
           <p class="text-center">Already have an account? <a href="#" class="priamry-blue">Log in</a></p>
+        <!-- i -->
+
         </form>
         </div>
 
@@ -170,6 +170,11 @@ padding: 32px;
   left: 50%;
   transform: translate(50%, -50%);
 }
+@media screen and (max-width: 500px) {
+  width: 100%;
+  margin: 16px 0;
+  border-radius: 0px;
+}
 }
 .card-form{
   margin: 26px 105px 36px 105px;
@@ -197,6 +202,10 @@ padding: 32px;
     background: gray-200;
     padding-right: 16px;
   }
+  @media screen and (max-width: 500px) {
+  width: 100%;
+  margin: 16px 0;
+}
 }
 .text-left{
   text-align: left;
@@ -269,7 +278,7 @@ padding: 32px;
 }
 @supports(-webkit-appearance: none) {
   input[type="checkbox"] {
-  background-color: gray-200;
+  background-color: $gray-200;
   border-radius: 5px;
   -webkit-appearance: none;
   width: 18px;
@@ -297,7 +306,6 @@ padding: 32px;
         border-top: none;
     transform: rotate(-45deg);}
 }
-
 </style>
 <script>
 export default {
