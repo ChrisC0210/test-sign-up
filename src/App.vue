@@ -6,7 +6,7 @@
       <div class="card text-left">
         <div class="card-content">
         <a href="#" class="f-14 text-back">← Back </a>
-        <form class="card-form f-14">
+        <form class="card-form f-14" :model="popData" :rules="rules" ref="popData">
           <div class="f-18">Start from free</div>
           <h1 class="f-30 mb-16">Create an account</h1>
           <div class="d-flex flex-between">
@@ -43,14 +43,30 @@
           </span>
           <!-- 0 -->
           <input v-if="showPassword" type="text" class="input-style" v-model="password"/>
-          <input v-else type="password" class="input-style" v-model="password" placeholder=" Password">
+          <input v-else type="password" class="input-style" v-model="password" placeholder=" Password"
+          name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and at least 8 or more characters" required
+          >
           </div>
+          <div id="message" class="f-10">
+  <span id="length" class="invalid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+</svg>
+    8 characters min. </span>
+  <span id="number" class="invalid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+</svg>
+    one number </span>
+</div>
             <!-- <div class="d-flex flex-between mb-12">
               <input type="checkbox" class="input-checkbox" id="privacyCheck">
               <span class="checkmark"></span>
               <label class="f-13" for="privacyCheck">By creating account, you agree to accept our Privacy Policy, Terms of Service and Notification settings.</label>
               </div> -->
-              <div class="d-flex mb-12">
+              <div class="d-flex mb-12 mt-10">
                 <input class="input-checkbox" type="checkbox" id="checkbox" name="checkbox" value="custom and accessible">
                 <label for="checkbox">By creating account, you agree to accept our Privacy Policy, Terms of Service and Notification settings.</label>
                 </div>
@@ -98,6 +114,9 @@ $blue-200: #F1F5FF;
 $white: #ffffff;
 $black :#000000;
 $gray-200: #ABABAB;
+input {
+-webkit-text-security: disc;
+}
 .priamry-blue{
   color: $priamry-blue;
 }
@@ -127,6 +146,13 @@ body {
 }
 .flex-between{
   justify-content: space-between;
+}
+.f-10{
+  font-family: Interstate;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 9px;
 }
 .f-14{
   font-family: Interstate;
@@ -163,6 +189,9 @@ body {
 .mb-16{
   margin-bottom: 16px;
 }
+.mt-10{
+  margin-top: 10px;
+}
 .mt-20{
   margin-top: -20px;
 }
@@ -193,6 +222,7 @@ padding: 32px;
   left: 50%;
   transform: translate(50%, -50%);
 }
+
 @media screen and (max-width: 500px) {
   width: 100%;
   margin: 16px 0;
@@ -377,6 +407,12 @@ export default {
     toggleShow () {
       this.showPassword = !this.showPassword
     }
+  },
+  rules: {
+    password: [{
+      required: true,
+      message: 'Please enter your password'
+    }]
   }
 }
 </script>
